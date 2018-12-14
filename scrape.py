@@ -11,7 +11,7 @@ import re
 
 dates = []
 # Create random list of 10000 dates to search in past 10 years
-for i in range(0, 300):
+for i in range(0, 3000):
     year = random.randrange(2008, 2018)
     month = random.randrange(1, 13)
     day = random.randrange(1, 30)
@@ -25,13 +25,14 @@ for i in range(0, 300):
 csvData = [["Date", "Text", "Username", "Id", "Permalink", "Retweets", "Favorites"]]
 words = []
 counter = 0
+search = "1800flowers"
 
 # Perform tweet retrieval per random date
 for date in dates:
     # Set the search criteria for tweets
     tweetCriteria = got3.manager.TweetCriteria() \
         .setUntil(date) \
-        .setQuerySearch("just egg") \
+        .setQuerySearch(search) \
         .setMaxTweets(1) \
         .setTopTweets(True)
 
@@ -85,7 +86,7 @@ for i in words:
         cleanwords.remove(i)
     elif i in string.punctuation:
         cleanwords.remove(i)
-    elif 'margaritaville' in i:
+    elif '1800flowers' in i:
         cleanwords.remove(i)
     elif 'www' in i:
         cleanwords.remove(i)
@@ -134,13 +135,13 @@ plt.barh(key[len(key) - 30:], val[len(val) - 30:])
 plt.plot()
 
 # Create csv of all tweets
-with open('margaritaville_tweets.csv', 'w') as csvFile:
+with open(search+'_tweets.csv', 'w') as csvFile:
     writer = csv.writer(csvFile)
     writer.writerows(csvData)
 csvFile.close()
 
 # Create csv of frequency counts
-with open('margaritaville_counts.csv', 'w') as csvFile2:
+with open(search+'_counts.csv', 'w') as csvFile2:
     writer = csv.writer(csvFile2)
     writer.writerow(['word','count'])
     for row in graph:
