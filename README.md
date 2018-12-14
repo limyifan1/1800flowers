@@ -1,4 +1,4 @@
-## Shoutout to Prof. Boichuk for introducing to me the importance of work being reproducible, accurate and collaborative!
+## Shoutout to Prof. Boichuk for this semester's amazing class and introducing to me the importance of being reproducible, accurate and collaborative!
 # 1800Flowers
 #### Introduction
 Python program to scrape a sample of tweets associated with 1-800-Flowers.com. 
